@@ -13,5 +13,5 @@ def home():
    		dbHandler.insertUser(username, password)
    		users = dbHandler.retrieveUsers()
 		return render_template('index.html', users=users)
-   	else:
+   	elif request.method=='GET':
    		return 'Hello, World!1'
