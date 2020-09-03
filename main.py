@@ -8,4 +8,4 @@ app = Flask(__name__)
 @app.route('/', methods=['POST', 'GET'])
 def home():
 	if request.method=='GET':
-   		return 'Hello, World!1'
+   		return render_template('index.html')
