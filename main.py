@@ -10,13 +10,12 @@ def home():
 def create():
 	with sqlite3.connect("coffee_shop.db") as db:
 		cursor = db.cursor()
-		cursor.execute(
-			"""	CREATE TABLE Product(
-					ProductID integer,
-					Name text,
-					Price real,
-					Primary Key(ProductID))
-			""")
+		cursor.execute(	"""	CREATE TABLE Product(
+							ProductID integer,
+							Name text,
+							Price real,
+							Primary Key(ProductID))
+						""")
 		db.commit()
     return 'CREATE TABLE'
 
