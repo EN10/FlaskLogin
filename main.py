@@ -17,7 +17,7 @@ def create():
 						Primary Key(ProductID))
 				""")
 		db.commit()
-    return 'CREATE TABLE'
+	return 'CREATE TABLE'
 
 @app.route('/insert')
 def insert():
@@ -26,4 +26,5 @@ def insert():
 		cursor.execute(	"""	INSERT INTO Product (Name, Price)
 						VALUES ("Apple Juice", 10.4)
 				""")
-        db.commit()
+		db.commit()
+	return 'INSERT'
