@@ -14,4 +14,3 @@ def home():
    		password = request.form['password']
    		dbHandler.insertUser(username, password)
    		users = dbHandler.retrieveUsers()
-		return render_template('index.html', users=users)
