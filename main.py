@@ -23,7 +23,7 @@ def create():
 def insert():
     with sqlite3.connect("coffee_shop.db") as db:
         cursor = db.cursor()
-	cursor.execute(	"""	INSERT INTO Product(Name, Price) 
+	cursor.execute(	"""	INSERT INTO Product (Name, Price)
 				VALUES ("Apple Juice", 10.4)
 			""")
         db.commit()
