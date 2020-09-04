@@ -11,11 +11,11 @@ def create():
 	with sqlite3.connect("coffee_shop.db") as db:
 		cursor = db.cursor()
 		cursor.execute(	"""	CREATE TABLE Product(
-							ProductID integer,
-							Name text,
-							Price real,
-							Primary Key(ProductID))
-						""")
+						ProductID integer,
+						Name text,
+						Price real,
+						Primary Key(ProductID))
+				""")
 		db.commit()
     return 'CREATE TABLE'
 
@@ -23,8 +23,7 @@ def create():
 def insert():
 	with sqlite3.connect("coffee_shop.db") as db:
 		cursor = db.cursor()
-		cursor.execute(
-			"""	INSERT INTO Product (Name, Price)
-					VALUES ("Apple Juice", 10.4)
-			""")
+		cursor.execute(	"""	INSERT INTO Product (Name, Price)
+						VALUES ("Apple Juice", 10.4)
+				""")
         db.commit()
