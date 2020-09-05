@@ -15,7 +15,6 @@ def login():
 
 @app.route('/view', methods=['POST'])
 def view():
-	print(request.form['psw'])
 	return request.form['psw']
 	
 @app.route('/create')
