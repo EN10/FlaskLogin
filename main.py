@@ -9,15 +9,16 @@ app = Flask(__name__)
 def home():
 	return 'Hello, World!'
 
-@app.route('/login', methods=['POST', 'GET'])
+@app.route('/login')
 def login():
-	if request.method=='GET':
-		return render_template('index.html')
-	elif request.method=='POST':
-		password = request.form['password']
-		print(password)
-		return password
+	return render_template('index.html')
 
+@app.route('/view')
+def login():
+	password = request.form['password']
+	print(password)
+	return password
+	
 @app.route('/create')
 def create():
 	with sqlite3.connect('coffee_shop.db') as db:
