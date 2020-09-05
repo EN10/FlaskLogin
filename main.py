@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return 'Hello, World!1'
+	return 'Hello, World!2'
 
 @app.route('/create')
 def create():
@@ -17,7 +17,7 @@ def create():
 						Primary Key(ProductID))
 				""")
 		db.commit()
-	return 'CREATE TABLE'
+	return 'CREATE'
 
 @app.route('/insert')
 def insert():
