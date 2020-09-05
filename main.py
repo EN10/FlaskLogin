@@ -61,3 +61,12 @@ def add():
 			       		(request.form['uname'],request.form['psw']))
 		db.commit()
 	return request.form['uname'] + ' added'
+
+@app.route('/verify', methods=['POST'])
+def verify():
+	with sqlite3.connect('login.db') as db:
+		cursor = db.cursor()
+		cursor.execute(	"SELECT * FROM Users WHERE Username=? AND Password=?",
+			       (request.form['uname'],request.form['psw']))
+		result = cursor.fetchall()
+	return len(result)
