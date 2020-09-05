@@ -28,3 +28,12 @@ def insert():
 				""")
 		db.commit()
 	return 'INSERT'
+
+@app.route('/select')
+def select():
+	with sqlite3.connect("coffee_shop.db") as db:
+		cursor = db.cursor()
+		cursor.execute(	"""	SELECT * FROM Product
+				""")
+		result = cursor.fetchall()
+	return result
