@@ -6,9 +6,13 @@ app = Flask(__name__)
 def home():
 	return 'Hello, World!'
 
+@app.route('/login')
+def home():
+	return render_template('index.html')
+
 @app.route('/create')
 def create():
-	with sqlite3.connect("coffee_shop.db") as db:
+	with sqlite3.connect('coffee_shop.db') as db:
 		cursor = db.cursor()
 		cursor.execute(	"""	CREATE TABLE Product(
 						ProductID integer,
@@ -21,7 +25,7 @@ def create():
 
 @app.route('/insert')
 def insert():
-	with sqlite3.connect("coffee_shop.db") as db:
+	with sqlite3.connect('coffee_shop.db') as db:
 		cursor = db.cursor()
 		cursor.execute(	"""	INSERT INTO Product (Name, Price)
 						VALUES ("Apple Juice", 10.4)
@@ -31,10 +35,10 @@ def insert():
 
 @app.route('/select')
 def select():
-	with sqlite3.connect("coffee_shop.db") as db:
+	with sqlite3.connect('coffee_shop.db') as db:
 		cursor = db.cursor()
 		cursor.execute(	"""	SELECT * FROM Product
 				""")
 		result = cursor.fetchall()
-		printable = ','.join(map(str, result))	# from list to string
-	return printable
+		#printable = ','.join(map(str, result))	# from list to string
+	return ','.join(map(str, result))
