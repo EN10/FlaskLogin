@@ -46,12 +46,14 @@ def insert():
 
 @app.route('/select')
 def select():
-	with sqlite3.connect('login.db') as db:
-		cursor = db.cursor()
-		cursor.execute(	"""	SELECT * FROM Users
-				""")
-		result = cursor.fetchall()
-		if len(result) == 0:
-			return 'no records'
-		else:
-			return ','.join(map(str, result))
+	try:
+		with sqlite3.connect('login.db') as db:
+			cursor = db.cursor()
+			cursor.execute("SELECT * FROM Users")
+			result = cursor.fetchall()
+			if len(result) == 0:
+				return 'no records'
+			else:
+				return ','.join(map(str, result))
+	except Exception as e:
+		return str(e)
