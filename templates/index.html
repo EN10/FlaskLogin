@@ -2,29 +2,20 @@
 <head>
     <link rel="stylesheet" href="main.css">
 </head>
-    <body>
-      <h1 style="text-align:center;">Example</h1>
-    	<div class="box">
-  			<h1>Log In</h1>
-  			<form action="/" method="post">
-    			<input type="text" name="username" id="username" placeholder="Username" required/>
-    			<br>
-    			<input type="password" name="password" id="password" placeholder="Password" required/>
-    			<br>
-    			<input type="submit" class="button" value="Log In"/>
-  			</form>
-		</div> 
-    {%if users%}
-    <div class="users" style="margin-left:20%">
-      <h2>Registered Users List</h2>
-      <table style="width:100%;">
-        {%for user in users%}
-          <tr>
-            <td>{{user[0]}}</td>
-          </tr>   
-        {%endfor%}
-      </table>
-    </div>
-    {%endif%}
+<body>
+    <form action="/action_page.php" method="post">
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit">Login</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
+    </form>
 </body>
 </html>
