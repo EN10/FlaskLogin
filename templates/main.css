@@ -1,44 +1,35 @@
-body,
-input,
-textarea,
-select {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
-  color: #4c4c4c;
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
-h1 {
-  font-size: 32px;
-  font-weight: 300;
-  color: #4c4c4c;
-  text-align: center;
-  padding-top: 10px;
-  margin-top: 20px;
-  margin-bottom: 10px;
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 }
 
-.box h2{
-  text-align: center;
-  margin-top: 30px;
+button:hover {
+  opacity: 0.8;
 }
 
-.box {
-  margin: 20px auto;
-  width: 310px; 
-  height: 260px; 
-  -webkit-border-radius: 8px/7px; 
-  -moz-border-radius: 8px/7px; 
-  border-radius: 8px/7px; 
-  background-color: white; 
-  -webkit-box-shadow: 1px 2px 5px grey; 
-  -moz-box-shadow: 1px 2px 5px grey; 
-  box-shadow: 1px 2px 5px grey; 
-  border: solid 1px grey;
+.container {
+  padding: 16px;
 }
 
-
-input{
-  margin-top: 15px;
-  margin-left: 25%;
-  margin-right:25%;
+span.psw {
+  float: right;
+  padding-top: 16px;
 }
