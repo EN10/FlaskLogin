@@ -7,7 +7,7 @@ def home():
 	return 'Hello, World!'
 
 @app.route('/login')
-def home():
+def login():
 	return render_template('index.html')
 
 @app.route('/create')
