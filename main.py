@@ -18,8 +18,8 @@ def add():
 	with sqlite3.connect('coffee_shop.db') as db:
 		cursor = db.cursor()
 		cursor.execute(	"""	INSERT INTO Users (Username, Password)
-						VALUES (?, ?),(request.form['uname'],request.form['psw'])
-				""")
+						VALUES (?,?)
+				""",(request.form['uname'],request.form['psw']))
 		db.commit()
 	return request.form['uname'] + ' Added'
 	
