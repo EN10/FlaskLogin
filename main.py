@@ -14,7 +14,8 @@ def login():
 	if request.method=='GET':
 		return render_template('index.html')
 	elif request.method=='POST':
-		return request.form['password']
+		password = request.form['password']
+		return password
 
 @app.route('/create')
 def create():
