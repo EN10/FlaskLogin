@@ -15,9 +15,8 @@ def login():
 
 @app.route('/view', methods=['POST'])
 def view():
-	password = request.form['password']
-	print(password)
-	return password
+	print(request.form['psw'])
+	return request.form['psw']
 	
 @app.route('/create')
 def create():
