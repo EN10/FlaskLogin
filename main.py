@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import render_template
 import sqlite3
+from flask import request
 
 app = Flask(__name__)
 
@@ -8,9 +9,12 @@ app = Flask(__name__)
 def home():
 	return 'Hello, World!'
 
-@app.route('/login')
+@app.route('/login', methods=['POST', 'GET'])
 def login():
-	return render_template('index.html')
+	if request.method=='GET':
+		return render_template('index.html')
+	elif request.method=='POST':
+		return request.form['password']
 
 @app.route('/create')
 def create():
