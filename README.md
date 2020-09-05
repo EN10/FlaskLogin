@@ -1,6 +1,6 @@
 # HerokuLogin
 
-* [PythonHeroku](https://github.com/EN10/PythonHeroku)  
+* [HerokuFlask](https://github.com/EN10/HerokuFlask)  
 * [Serving Static Files with Flask](https://stackabuse.com/serving-static-files-with-flask/)   
 * [Login Template](https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form)   
 * [SQLite3](https://github.com/smileboywtu/SQLite3)
