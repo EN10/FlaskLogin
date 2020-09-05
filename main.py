@@ -13,15 +13,10 @@ def home():
 def login():
 	return render_template('index.html')
 
-@app.route('/add', methods=['POST'])
-def add():
-	with sqlite3.connect('login.db') as db:
-		cursor = db.cursor()
-		cursor.execute(	"INSERT INTO Users (Username, Password) VALUES (?,?)",
-			       		(request.form['uname'],request.form['psw']))
-		db.commit()
-	return request.form['uname'] + ' added'
-	
+@app.route('/signup')
+def signup():
+	return render_template('signup.html')
+
 @app.route('/create')
 def create():
 	with sqlite3.connect('login.db') as db:
@@ -57,3 +52,12 @@ def select():
 				return ','.join(map(str, result))
 	except Exception as e:
 		return str(e)
+
+@app.route('/add', methods=['POST'])
+def add():
+	with sqlite3.connect('login.db') as db:
+		cursor = db.cursor()
+		cursor.execute(	"INSERT INTO Users (Username, Password) VALUES (?,?)",
+			       		(request.form['uname'],request.form['psw']))
+		db.commit()
+	return request.form['uname'] + ' added'
