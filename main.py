@@ -36,5 +36,5 @@ def select():
 		cursor.execute(	"""	SELECT * FROM Product
 				""")
 		result = cursor.fetchall()
-		printable = *result	# from list to string
+		printable = ''.join(result)	# from list to string
 	return printable
