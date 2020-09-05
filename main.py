@@ -20,7 +20,7 @@ def add():
 		cursor.execute(	"INSERT INTO Users (Username, Password) VALUES (?,?)",
 			       		(request.form['uname'],request.form['psw']))
 		db.commit()
-	return request.form['uname'] + ' Added'
+	return request.form['uname'] + ' added'
 	
 @app.route('/create')
 def create():
