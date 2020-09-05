@@ -51,4 +51,7 @@ def select():
 		cursor.execute(	"""	SELECT * FROM Users
 				""")
 		result = cursor.fetchall()
-	return ','.join(map(str, result))
+		if len(result) == 0:
+			return 'no records'
+		else:
+			return ','.join(map(str, result))
