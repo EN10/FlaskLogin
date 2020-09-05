@@ -69,4 +69,7 @@ def verify():
 		cursor.execute(	"SELECT * FROM Users WHERE Username=? AND Password=?",
 			       (request.form['uname'],request.form['psw']))
 		result = cursor.fetchall()
-	return str(len(result))
+		if len(result) == 0:
+			return 'username / password not recognised'
+		else:
+			return 'welcome ' + request.form['uname']
