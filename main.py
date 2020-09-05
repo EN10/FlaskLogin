@@ -15,17 +15,16 @@ def login():
 
 @app.route('/add', methods=['POST'])
 def add():
-	with sqlite3.connect('coffee_shop.db') as db:
+	with sqlite3.connect('login.db') as db:
 		cursor = db.cursor()
-		cursor.execute(	"""	INSERT INTO Users (Username, Password)
-						VALUES (?,?)
-				""",(request.form['uname'],request.form['psw']))
+		cursor.execute(	"INSERT INTO Users (Username, Password) VALUES (?,?)",
+			       		(request.form['uname'],request.form['psw']))
 		db.commit()
 	return request.form['uname'] + ' Added'
 	
 @app.route('/create')
 def create():
-	with sqlite3.connect('coffee_shop.db') as db:
+	with sqlite3.connect('login.db') as db:
 		cursor = db.cursor()
 		cursor.execute(	"""	CREATE TABLE Users(
 						Username text,
@@ -37,7 +36,7 @@ def create():
 
 @app.route('/insert')
 def insert():
-	with sqlite3.connect('coffee_shop.db') as db:
+	with sqlite3.connect('login.db') as db:
 		cursor = db.cursor()
 		cursor.execute(	"""	INSERT INTO Users (Username, Password)
 						VALUES ("Bob", "123")
@@ -47,7 +46,7 @@ def insert():
 
 @app.route('/select')
 def select():
-	with sqlite3.connect('coffee_shop.db') as db:
+	with sqlite3.connect('login.db') as db:
 		cursor = db.cursor()
 		cursor.execute(	"""	SELECT * FROM Users
 				""")
