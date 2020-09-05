@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-	return 'Hello, World!2'
+	return 'Hello, World!'
 
 @app.route('/create')
 def create():
@@ -36,5 +36,5 @@ def select():
 		cursor.execute(	"""	SELECT * FROM Product
 				""")
 		result = cursor.fetchall()
-		printable = ''.join(result)	# from list to string
+		printable = ','.join(map(str, result))	# from list to string
 	return printable
