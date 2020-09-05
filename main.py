@@ -37,4 +37,4 @@ def select():
 				""")
 		result = cursor.fetchall()
 		print(str(result))
-	return str(result))
+	return result
