@@ -14,7 +14,7 @@ def login():
 	return render_template('index.html')
 
 @app.route('/view')
-def login():
+def view():
 	password = request.form['password']
 	print(password)
 	return password
