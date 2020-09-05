@@ -13,7 +13,7 @@ def home():
 def login():
 	return render_template('index.html')
 
-@app.route('/view')
+@app.route('/view', methods=['POST'])
 def view():
 	password = request.form['password']
 	print(password)
