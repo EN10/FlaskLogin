@@ -13,19 +13,24 @@ def home():
 def login():
 	return render_template('index.html')
 
-@app.route('/view', methods=['POST'])
-def view():
-	return request.form['psw']
+@app.route('/add', methods=['POST'])
+def add():
+	with sqlite3.connect('coffee_shop.db') as db:
+		cursor = db.cursor()
+		cursor.execute(	"""	INSERT INTO Users (Username, Password)
+						VALUES (?, ?),(request.form['uname'],request.form['psw'])
+				""")
+		db.commit()
+	return request.form['uname'] + ' Added'
 	
 @app.route('/create')
 def create():
 	with sqlite3.connect('coffee_shop.db') as db:
 		cursor = db.cursor()
-		cursor.execute(	"""	CREATE TABLE Product(
-						ProductID integer,
-						Name text,
-						Price real,
-						Primary Key(ProductID))
+		cursor.execute(	"""	CREATE TABLE Users(
+						Username text,
+						Password text,
+						Primary Key(Username))
 				""")
 		db.commit()
 	return 'CREATE'
@@ -34,8 +39,8 @@ def create():
 def insert():
 	with sqlite3.connect('coffee_shop.db') as db:
 		cursor = db.cursor()
-		cursor.execute(	"""	INSERT INTO Product (Name, Price)
-						VALUES ("Apple Juice", 10.4)
+		cursor.execute(	"""	INSERT INTO Users (Username, Password)
+						VALUES ("Bob", "123")
 				""")
 		db.commit()
 	return 'INSERT'
@@ -44,8 +49,7 @@ def insert():
 def select():
 	with sqlite3.connect('coffee_shop.db') as db:
 		cursor = db.cursor()
-		cursor.execute(	"""	SELECT * FROM Product
+		cursor.execute(	"""	SELECT * FROM Users
 				""")
 		result = cursor.fetchall()
-		#printable = ','.join(map(str, result))	# from list to string
 	return ','.join(map(str, result))
