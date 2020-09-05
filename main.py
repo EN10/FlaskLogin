@@ -15,6 +15,7 @@ def login():
 		return render_template('index.html')
 	elif request.method=='POST':
 		password = request.form['password']
+		print(password)
 		return password
 
 @app.route('/create')
