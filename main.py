@@ -17,7 +17,7 @@ def login():
 def signup():
 	return render_template('signup.html')
 
-if __name__ == '__main__':
+def create():
 	with sqlite3.connect('login.db') as db:
 		cursor = db.cursor()
 		cursor.execute(	"""	CREATE TABLE Users(
@@ -27,6 +27,9 @@ if __name__ == '__main__':
 				""")
 		db.commit()
 		print('CREATE')
+
+if __name__ == '__main__':
+	create()
 
 @app.route('/insert')
 def insert():
