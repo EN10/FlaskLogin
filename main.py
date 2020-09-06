@@ -17,17 +17,17 @@ def login():
 def signup():
 	return render_template('signup.html')
 
-@app.route('/create')
 def create():
 	with sqlite3.connect('login.db') as db:
 		cursor = db.cursor()
-		cursor.execute(	"""	CREATE TABLE Users(
+		cursor.execute(	"""	CREATE TABLE IF NOT EXISTS Users(
 						Username text,
 						Password text,
 						Primary Key(Username))
 				""")
 		db.commit()
-	return 'CREATE'
+	print('CREATE')
+create()
 
 @app.route('/insert')
 def insert():
