@@ -28,8 +28,7 @@ def create():
 		db.commit()
 		print('CREATE')
 
-if __name__ == '__main__':
-	create()
+create()
 
 @app.route('/insert')
 def insert():
