@@ -17,6 +17,7 @@ def login():
 def signup():
 	return render_template('signup.html')
 
+@app.route('/create')
 def create():
 	with sqlite3.connect('login.db') as db:
 		cursor = db.cursor()
@@ -26,9 +27,7 @@ def create():
 						Primary Key(Username))
 				""")
 		db.commit()
-		print('CREATE')
-
-create()
+	return 'CREATE'
 
 @app.route('/insert')
 def insert():
