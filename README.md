@@ -8,4 +8,4 @@
 
 console - bash  
 
-    sqlite3 database.db < schema.sql
+    sqlite3 login.db < schema.sql
