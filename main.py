@@ -75,6 +75,7 @@ def verify():
 		if len(result) == 0:
 			return 'username / password not recognised'
 		else:
+			session.permanent = True
 			session['username'] = request.form['uname']
 			return 'welcome ' + request.form['uname']
 @app.route('/cookie')
