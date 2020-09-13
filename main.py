@@ -1,8 +1,8 @@
-from flask import Flask, render_template, request, session, url_for
-from datetime import timedelta
+from flask import Flask, render_template, request, session, redirect, url_for
 import sqlite3
 import os
 from markupsafe import escape
+from datetime import timedelta
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(16)
