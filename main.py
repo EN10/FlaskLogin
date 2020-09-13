@@ -3,14 +3,11 @@ import sqlite3
 import os
 
 app = Flask(__name__)
+app.secret_key = os.urandom(16)
 
 @app.route('/')
 def home():
 	return 'Hello, World!'
-
-@app.route('/random')
-def random():
-	return os.urandom(16)
 
 @app.route('/login')
 def login():
@@ -75,4 +72,11 @@ def verify():
 		if len(result) == 0:
 			return 'username / password not recognised'
 		else:
+			session['username'] = request.form['username']
 			return 'welcome ' + request.form['uname']
+@app.route('/session')
+def session():
+    if 'username' in session:
+        return 'Logged in as %s' % escape(session['username'])
+    return 'You are not logged in
+
