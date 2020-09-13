@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, session
 import sqlite3
 import os
+from markupsafe import escape
 
 app = Flask(__name__)
 app.secret_key = os.urandom(16)
