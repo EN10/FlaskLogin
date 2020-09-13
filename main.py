@@ -1,13 +1,16 @@
-from flask import Flask
-from flask import render_template
+from flask import Flask, render_template, request
 import sqlite3
-from flask import request
+import os
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
 	return 'Hello, World!'
+
+@app.route('/random')
+def random():
+	return os.urandom(16)
 
 @app.route('/login')
 def login():
