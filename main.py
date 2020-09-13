@@ -6,7 +6,9 @@ from markupsafe import escape
 
 app = Flask(__name__)
 app.secret_key = os.urandom(16)
-
+session.permanent = True
+app.permanent_session_lifetime = timedelta(minutes=1)
+		
 @app.route('/')
 def home():
 	return 'Hello, World!'
@@ -74,8 +76,6 @@ def verify():
 		if len(result) == 0:
 			return 'username / password not recognised'
 		else:
-			session.permanent = True
-			app.permanent_session_lifetime = timedelta(minutes=1)
 			session['username'] = request.form['uname']
 			return 'welcome ' + request.form['uname']
 @app.route('/cookie')
