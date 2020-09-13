@@ -77,7 +77,7 @@ def verify():
 			return 'welcome ' + request.form['uname']
 @app.route('/session')
 def session():
-    if 'username' in session:
-        return 'Logged in as %s' % escape(session['username'])
-    return 'You are not logged in
+	if 'username' in session:
+		return 'Logged in as %s' % escape(session['username'])
+	return 'You are not logged in'
 
