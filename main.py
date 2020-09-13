@@ -73,7 +73,7 @@ def verify():
 		if len(result) == 0:
 			return 'username / password not recognised'
 		else:
-			session['username'] = request.form['uname']
+			session['username'] = str(request.form['uname'])
 			return 'welcome ' + request.form['uname']
 @app.route('/session')
 def session():
