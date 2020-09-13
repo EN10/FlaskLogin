@@ -5,9 +5,8 @@ import os
 from markupsafe import escape
 
 app = Flask(__name__)
-app.secret_key = os.urandom(16)
-session.permanent = True
-app.permanent_session_lifetime = timedelta(minutes=1)
+app.config['SECRET_KEY'] = os.urandom(16)
+app.config['PERMANENT_SESSION_LIFETIME'] =  timedelta(minutes=1)
 		
 @app.route('/')
 def home():
