@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, session
+from datetime import timedelta
 import sqlite3
 import os
 from markupsafe import escape
@@ -73,6 +74,8 @@ def verify():
 		if len(result) == 0:
 			return 'username / password not recognised'
 		else:
+			session.permanent = True
+			app.permanent_session_lifetime = timedelta(minutes=1)
 			session['username'] = request.form['uname']
 			return 'welcome ' + request.form['uname']
 @app.route('/cookie')
