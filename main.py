@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, url_for
 from datetime import timedelta
 import sqlite3
 import os
@@ -78,9 +78,13 @@ def verify():
 			session.permanent = True
 			session['username'] = request.form['uname']
 			return 'welcome ' + request.form['uname']
-@app.route('/cookie')
-def cookie():
+@app.route('/un')
+def un():
 	if 'username' in session:
 		return 'Logged in as %s' % escape(session['username'])
 	return 'You are not logged in'
 
+@app.route('/logout')
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('un'))
