@@ -74,11 +74,11 @@ def verify():
 			return 'username / password not recognised'
 		else:
 			print(request.form['uname'])
-			session['username'] = request.form['uname']
+			session['uname'] = request.form['uname']
 			return 'welcome ' + request.form['uname']
 @app.route('/session')
 def session():
 	if 'username' in session:
-		return 'Logged in as %s' % escape(session['username'])
+		return 'Logged in as %s' % escape(session['uname'])
 	return 'You are not logged in'
 
