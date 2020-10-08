@@ -23,16 +23,16 @@ def signup():
 create()
 
 @app.route('/insert')
-insert():
+insert()
 
 @app.route('/select')
-select():
+select()
 
 @app.route('/add', methods=['POST'])
-add():
+add()
 
 @app.route('/verify', methods=['POST'])
-verify():
+verify()
 
 @app.route('/un')
 def un():
