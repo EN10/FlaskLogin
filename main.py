@@ -24,19 +24,19 @@ sql.create()
 
 @app.route('/insert')
 def insert():
-	sql.insert()
+	return sql.insert()
 
 @app.route('/select')
 def select():
-	sql.select()
+	return sql.select()
 
 @app.route('/add', methods=['POST'])
 def add():
-	sql.add()
+	return sql.add()
 
 @app.route('/verify', methods=['POST'])
 def verify():
-	sql.verify()
+	return sql.verify()
 
 @app.route('/un')
 def un():
