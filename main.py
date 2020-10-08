@@ -2,7 +2,7 @@ from flask import Flask, render_template, session, redirect, url_for
 import os
 from markupsafe import escape
 from datetime import timedelta
-import pythonSQL
+import sql
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(16)
@@ -20,19 +20,19 @@ def login():
 def signup():
 	return render_template('signup.html')
 
-create()
+sql.create()
 
 @app.route('/insert')
-insert()
+sql.insert()
 
 @app.route('/select')
-select()
+sql.select()
 
 @app.route('/add', methods=['POST'])
-add()
+sql.add()
 
 @app.route('/verify', methods=['POST'])
-verify()
+sql.verify()
 
 @app.route('/un')
 def un():
