@@ -1,8 +1,8 @@
-from flask import Flask, render_template, request, session, redirect, url_for
-import sqlite3
+from flask import Flask, render_template, session, redirect, url_for
 import os
 from markupsafe import escape
 from datetime import timedelta
+import sql
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(16)
@@ -20,64 +20,24 @@ def login():
 def signup():
 	return render_template('signup.html')
 
-def create():
-	with sqlite3.connect('login.db') as db:
-		cursor = db.cursor()
-		cursor.execute(	"""	CREATE TABLE IF NOT EXISTS Users(
-						Username text,
-						Password text,
-						Primary Key(Username))
-				""")
-		db.commit()
-	print('CREATE')
-create()
+sql.create()
 
 @app.route('/insert')
 def insert():
-	with sqlite3.connect('login.db') as db:
-		cursor = db.cursor()
-		cursor.execute(	"""	INSERT INTO Users (Username, Password)
-						VALUES ("Bob", "123")
-				""")
-		db.commit()
-	return 'INSERT'
+	return sql.insert()
 
 @app.route('/select')
 def select():
-	try:
-		with sqlite3.connect('login.db') as db:
-			cursor = db.cursor()
-			cursor.execute("SELECT * FROM Users")
-			result = cursor.fetchall()
-			if len(result) == 0:
-				return 'no records'
-			else:
-				return ','.join(map(str, result))
-	except Exception as e:
-		return str(e)
+	return sql.select()
 
 @app.route('/add', methods=['POST'])
 def add():
-	with sqlite3.connect('login.db') as db:
-		cursor = db.cursor()
-		cursor.execute(	"INSERT INTO Users (Username, Password) VALUES (?,?)",
-			       		(request.form['uname'],request.form['psw']))
-		db.commit()
-	return request.form['uname'] + ' added'
+	return sql.add()
 
 @app.route('/verify', methods=['POST'])
 def verify():
-	with sqlite3.connect('login.db') as db:
-		cursor = db.cursor()
-		cursor.execute(	"SELECT * FROM Users WHERE Username=? AND Password=?",
-			       (request.form['uname'],request.form['psw']))
-		result = cursor.fetchall()
-		if len(result) == 0:
-			return 'username / password not recognised'
-		else:
-			session.permanent = True
-			session['username'] = request.form['uname']
-			return 'welcome ' + request.form['uname']
+	return sql.verify()
+
 @app.route('/un')
 def un():
 	if 'username' in session:
