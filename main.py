@@ -23,16 +23,20 @@ def signup():
 sql.create()
 
 @app.route('/insert')
-sql.insert()
+def insert():
+	sql.insert()
 
 @app.route('/select')
-sql.select()
+def select():
+	sql.select()
 
 @app.route('/add', methods=['POST'])
-sql.add()
+def add():
+	sql.add()
 
 @app.route('/verify', methods=['POST'])
-sql.verify()
+def verify():
+	sql.verify()
 
 @app.route('/un')
 def un():
