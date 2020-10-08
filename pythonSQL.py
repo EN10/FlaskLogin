@@ -1,12 +1,5 @@
-from flask import Flask, request, session
+from flask import request, session
 import sqlite3
-import os
-from markupsafe import escape
-from datetime import timedelta
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = os.urandom(16)
-app.config['PERMANENT_SESSION_LIFETIME'] =  timedelta(minutes=1)
 
 def create():
 	with sqlite3.connect('login.db') as db:
