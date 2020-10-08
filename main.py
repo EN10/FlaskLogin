@@ -1,5 +1,4 @@
 from flask import Flask, render_template, session, redirect, url_for
-import sqlite3
 import os
 from markupsafe import escape
 from datetime import timedelta
