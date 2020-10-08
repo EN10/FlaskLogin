@@ -11,7 +11,6 @@ def create():
 				""")
 		db.commit()
 	print('CREATE')
-create()
 
 def insert():
 	with sqlite3.connect('login.db') as db:
