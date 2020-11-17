@@ -28,7 +28,7 @@ def insert():
 @app.route('/select')
 def select():
 	con = sqlite3.connect('login.db')
-	cur = db.cursor()
+	cur = con.cursor()
 	cur.execute("SELECT * FROM Users")
 	rows = cur.fetchall()
 	return str(rows)
