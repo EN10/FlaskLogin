@@ -10,3 +10,5 @@ def tables():
 	cur.execute("SELECT * FROM sqlite_master")
 	rows = cur.fetchall()
 	return str(rows)
+
+test
