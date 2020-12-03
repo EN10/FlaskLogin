@@ -8,9 +8,8 @@ def create():
 	con = sqlite3.connect('login.db')
 	cur = con.cursor()
 	cur.execute(	"""	CREATE TABLE Users(
-					Username text,
-					Password text,
-					Primary Key(Username))
+					Username VARCHAR(20) NOT NULL PRIMARY KEY,
+					Password VARCHAR(20) NOT NULL
 			""")
 	con.commit()
 	return 'CREATE'
