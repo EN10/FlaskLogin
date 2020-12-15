@@ -8,20 +8,15 @@ app.config['PERMANENT_SESSION_LIFETIME'] =  timedelta(seconds=10)
 
 @app.route('/')
 def login():
-    password = request.args.get('p', '')
-    if password == '123':
+    if request.args.get('p', '') == '123':
         session.permanent = True
-        session['loggedin'] = 'True'
-        return 'welcome'
-    return 'error'
-
-@app.route('/logged')
-def logged():
-    if 'loggedin' in session:
-        return 'you are logged in'
+        session['loggedin'] = True
+        return 'Welcome'
+    elif 'loggedin' in session:
+        return 'You are logged in'
     return 'You are not logged in'
 
 @app.route('/logout')
 def logout():
     session.pop('loggedin', None)
-    return "you've been logged out"
+    return "You've been logged out"
