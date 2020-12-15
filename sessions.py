@@ -1,9 +1,9 @@
 from flask import Flask, request, session
-import os
+from os import urandom
 from datetime import timedelta
 
 app = Flask(__name__)
-app.secret_key = os.urandom(16)
+app.secret_key = urandom(16)
 app.permanent_session_lifetime =  timedelta(seconds=10)
 
 @app.route('/')
