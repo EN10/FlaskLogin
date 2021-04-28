@@ -10,6 +10,7 @@ def create():
 	cur.execute(	"""	CREATE TABLE Users(
 					Username VARCHAR(20) NOT NULL PRIMARY KEY,
 					Password VARCHAR(20) NOT NULL
+						  )
 			""")
 	con.commit()
 	return 'CREATE'
