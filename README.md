@@ -1,5 +1,10 @@
 # HerokuLogin
 
+* [SQL Intro in Flask](https://github.com/eniompw/FlaskLogin/blob/master/first_db.py)
+* [SignUp in Flask](https://github.com/eniompw/FlaskLogin/blob/master/signup.py)
+* [Modular SQL App](https://github.com/eniompw/FlaskLogin/blob/master/main.py)
+
+## Refernces
 * [Flask Quickstart](https://flask.palletsprojects.com/en/1.1.x/quickstart/)
 * [HerokuFlask](https://github.com/EN10/HerokuFlask)  
 * [Serving Static Files with Flask](https://stackabuse.com/serving-static-files-with-flask/)   
