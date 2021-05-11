@@ -12,6 +12,7 @@
 * [SQLite3](https://github.com/smileboywtu/SQLite3)
 * [Login page using Python, Flask and sqlite3 DB](https://gist.github.com/PolBaladas/07bfcdefb5c1c57cdeb5#how-to-guide)     
 * [Import Module](https://www.w3schools.com/python/python_modules.asp)
+* [Python Exception Handling](https://www.programiz.com/python-programming/exception-handling)
 
 
 console - bash  
