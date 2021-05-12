@@ -6,7 +6,6 @@ import sqlite3
 def home():
         return render_template('simple_form.html')
 
-
 @app.route('/signup', methods=['POST'])
 def signup():
     con = sqlite3.connect('login.db')
