@@ -10,3 +10,15 @@ def tables():
 	cur.execute("SELECT * FROM sqlite_master")
 	rows = cur.fetchall()
 	return str(rows)
+
+@app.route('/insert', methods=['POST'])
+def insert():
+    con = sqlite3.connect('login.db')
+    cur = con.cursor()
+    try:
+        cur.execute("INSERT INTO Users (Username, Password) VALUES (?,?)",
+                        (request.form['un'],request.form['pw']))
+    except Exception as e:
+        return str(e)
+    con.commit()
+    return request.form['un'] + ' added'
