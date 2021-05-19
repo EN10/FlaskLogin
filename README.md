@@ -2,7 +2,7 @@
 
 * [SQL Intro in Flask](https://github.com/eniompw/FlaskLogin/blob/master/first_db.py)
 * [SignUp in Flask](https://github.com/eniompw/FlaskLogin/blob/master/signup%26login.py)
-* [Modular SQL App](https://github.com/eniompw/FlaskLogin/blob/master/main.py)
+* [Example SQL App](https://github.com/eniompw/FlaskLogin/blob/master/main.py)
 
 ## References
 * [Flask Quickstart](https://flask.palletsprojects.com/en/1.1.x/quickstart/)
