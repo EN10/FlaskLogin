@@ -22,3 +22,9 @@ def insert():
         return str(e)
     con.commit()
     return request.form['un'] + ' added'
+
+
+# print to pythonanywhere error log
+# might be faster to run function() and click Run rather the Reload
+import sys
+print("fatal error", file=sys.stderr)
