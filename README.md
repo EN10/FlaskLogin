@@ -1,7 +1,7 @@
 # HerokuLogin
 
 * [SQL Intro in Flask](https://github.com/eniompw/FlaskLogin/blob/master/first_db.py)
-* [SignUp in Flask](https://github.com/eniompw/FlaskLogin/blob/master/signup%26login.py)
+* [SignUp & Login in Flask](https://github.com/eniompw/FlaskLogin/blob/master/signup%26login.py)
 * [Example SQL App](https://github.com/eniompw/FlaskLogin/blob/master/main.py)
 
 ## References
