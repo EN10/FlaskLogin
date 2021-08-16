@@ -5,6 +5,5 @@ app = Flask(__name__)
 
 @app.route('/db')
 def create():
-	con = sqlite3.connect('example.db')
-	con.commit()
+	sqlite3.connect('example.db')
 	return 'DB Created'
