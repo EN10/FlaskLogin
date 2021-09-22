@@ -14,6 +14,7 @@
 * [Login page using Python, Flask and sqlite3 DB](https://gist.github.com/PolBaladas/07bfcdefb5c1c57cdeb5#how-to-guide) 
 * [Command Line Shell For SQLite](https://www.sqlite.org/cli.html#querying_the_database_schema)
 * [Python Exception Handling](https://www.programiz.com/python-programming/exception-handling)
+* [CSS Buttons](https://www.w3schools.com/csS/css3_buttons.asp)
 
 
 console - bash  
