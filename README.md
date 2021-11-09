@@ -1,9 +1,12 @@
 # Login with Flask
 
-* [SQL Intro in Flask](https://github.com/eniompw/FlaskLogin/blob/master/first_db.py)
+1. [Create DB](https://github.com/eniompw/FlaskLogin/blob/master/create_db.py)
+2. [Create Table](https://github.com/eniompw/FlaskLogin/blob/master/create_tbl.py)
+3. [Insert & Select](https://github.com/eniompw/FlaskLogin/blob/master/first_db.py)
+4. [SignUp & Login](https://github.com/eniompw/FlaskLogin/blob/master/signup%26login.py)
+5. [Full Example](https://github.com/eniompw/FlaskLogin/blob/master/main.py)
+
 * [Forms in Flask](https://github.com/eniompw/FormsInFlask)
-* [SignUp & Login in Flask](https://github.com/eniompw/FlaskLogin/blob/master/signup%26login.py)
-* [Example SQL App](https://github.com/eniompw/FlaskLogin/blob/master/main.py)
 * [Postgres on Heroku](https://github.com/eniompw/FlaskPostgres)
 
 ## References
