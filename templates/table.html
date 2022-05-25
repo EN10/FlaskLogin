@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<title>Users Table</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+  <h2 class="w3-center">Users Table</h2>
+
+  <table class="w3-table-all">
+    <thead>
+      <tr class="w3-blue">
+        <th>Username</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    {%- for row in rows %}
+    <tr>
+        <td>{{ row.0 }}</td>
+        <td>{{ row.1 }}</td>
+    </tr>
+    {%- endfor %}
+  </table>
+
+</body>
+</html>

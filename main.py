@@ -79,13 +79,13 @@ def verify():
 			session['username'] = request.form['uname']
 			return 'welcome ' + request.form['uname']
 
-@app.route('/tojson')
+@app.route('/table')
 def select():
 	con = sqlite3.connect('login.db')
 	cur = con.cursor()
 	cur.execute("SELECT * FROM Users")
 	rows = cur.fetchall()
-	return render_template('tojson.html', rows=rows)		
+	return render_template('table.html', rows=rows)		
 
 @app.route('/un')
 def un():
