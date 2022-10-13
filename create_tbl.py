@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    con = sqlite3.connect("Login.db")
+    con = sqlite3.connect("login.db")
     cur = con.cursor()
     try:
         cur.execute("""
