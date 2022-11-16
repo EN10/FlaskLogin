@@ -10,7 +10,7 @@
 * [Postgres on Heroku](https://github.com/eniompw/FlaskPostgres)
 
 ## References
-* [Flask Quickstart](https://flask.palletsprojects.com/en/1.1.x/quickstart/)
+* [Flask Quickstart](https://flask.palletsprojects.com/en/2.2.x/quickstart/)
 * [Serving Static Files with Flask](https://stackabuse.com/serving-static-files-with-flask/)   
 * [W3 Login HTML Template](https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form)   
 * [SQLite3 Coffee Shop Example](https://github.com/smileboywtu/SQLite3)
