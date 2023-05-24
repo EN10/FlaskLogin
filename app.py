@@ -29,9 +29,10 @@ def signup():
 def select():
     con = sqlite3.connect("database.db")
     cur = con.cursor()
-    cur.execute(""" SELECT * FROM login
-                    WHERE username = ? AND password = ? """,
-                    (request.form['username'], request.form['password']))
+    cur.execute("""
+    SELECT * FROM login
+    WHERE username = ? AND password = ?
+    """, (request.form['username'], request.form['password']))
     rows = cur.fetchall()
     if len(rows) == 1:
         session['username'] = request.form['username']
@@ -46,9 +47,7 @@ def insert():
     cur.execute("""
     INSERT INTO login (username, password)
     VALUES (?, ?)
-    """,
-    (request.form['username'], request.form['password'])
-    )
+    """, (request.form['username'], request.form['password']))
     con.commit()
     return 'signup successful'
 
