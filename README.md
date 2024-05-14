@@ -21,6 +21,7 @@
 * [CSS Buttons](https://www.w3schools.com/csS/css3_buttons.asp)
 * [SQLite fetchall() to HTML table using Jinja](https://stackoverflow.com/questions/64867711/iterating-through-a-list-to-create-a-table-in-jinja-python-flask-sqlite)
 * [W3.CSS Tables](https://www.w3schools.com/w3css/w3css_tables.asp)
+* [Sessions](https://flask.palletsprojects.com/en/3.0.x/quickstart/#sessions)
 
 
 console - bash  
