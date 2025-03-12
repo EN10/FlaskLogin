@@ -56,6 +56,14 @@ def select():
 	except Exception as e:
 		return str(e)
 
+@app.route('/table')
+def table():
+	con = sqlite3.connect('login.db')
+	cur = con.cursor()
+	cur.execute("SELECT * FROM Users")
+	rows = cur.fetchall()
+	return render_template('table.html', rows=rows)		
+
 @app.route('/add', methods=['POST'])
 def add():
 	with sqlite3.connect('login.db') as db:
@@ -79,14 +87,6 @@ def verify():
 			session['username'] = request.form['uname']
 			return 'welcome ' + request.form['uname']
 
-@app.route('/table')
-def select():
-	con = sqlite3.connect('login.db')
-	cur = con.cursor()
-	cur.execute("SELECT * FROM Users")
-	rows = cur.fetchall()
-	return render_template('table.html', rows=rows)		
-
 @app.route('/un')
 def un():
 	if 'username' in session:
@@ -97,3 +97,6 @@ def un():
 def logout():
     session.pop('username', None)
     return redirect(url_for('un'))
+
+if __name__ == "__main__":
+    app.run(debug=True)
