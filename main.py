@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, redirect, url_for
+from flask import Flask, render_template, session, redirect, url_for, request, flash
 import sqlite3
 import os
 from markupsafe import escape
@@ -97,6 +97,39 @@ def un():
 def logout():
     session.pop('username', None)
     return redirect(url_for('un'))
+
+@app.route('/change_password')
+def change_password():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    return render_template('change_password.html')
+
+@app.route('/update_password', methods=['POST'])
+def update_password():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    
+    current_password = request.form['current_password']
+    new_password = request.form['new_password']
+    confirm_password = request.form['confirm_password']
+    
+    if new_password != confirm_password:
+        return 'New passwords do not match'
+    
+    with sqlite3.connect('login.db') as db:
+        cursor = db.cursor()
+        # Verify current password
+        cursor.execute("SELECT * FROM Users WHERE Username=? AND Password=?",
+                      (session['username'], current_password))
+        if not cursor.fetchone():
+            return 'Current password is incorrect'
+        
+        # Update password
+        cursor.execute("UPDATE Users SET Password=? WHERE Username=?",
+                      (new_password, session['username']))
+        db.commit()
+        
+    return 'Password successfully updated'
 
 if __name__ == "__main__":
     app.run(debug=True)
