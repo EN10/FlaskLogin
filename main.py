@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, redirect, url_for
+from flask import Flask, render_template, session, redirect, url_for, request
 import sqlite3
 import os
 from markupsafe import escape
@@ -56,6 +56,14 @@ def select():
 	except Exception as e:
 		return str(e)
 
+@app.route('/table')
+def table():
+	con = sqlite3.connect('login.db')
+	cur = con.cursor()
+	cur.execute("SELECT * FROM Users")
+	rows = cur.fetchall()
+	return render_template('table.html', rows=rows)		
+
 @app.route('/add', methods=['POST'])
 def add():
 	with sqlite3.connect('login.db') as db:
@@ -69,23 +77,15 @@ def add():
 def verify():
 	with sqlite3.connect('login.db') as db:
 		cursor = db.cursor()
-		cursor.execute(	"SELECT * FROM Users WHERE Username=? AND Password=?",
-			       (request.form['uname'],request.form['psw']))
+		cursor.execute("SELECT * FROM Users WHERE Username=? AND Password=?",
+			   (request.form['uname'],request.form['psw']))
 		result = cursor.fetchall()
 		if len(result) == 0:
 			return 'username / password not recognised'
 		else:
 			session.permanent = True
 			session['username'] = request.form['uname']
-			return 'welcome ' + request.form['uname']
-
-@app.route('/table')
-def select():
-	con = sqlite3.connect('login.db')
-	cur = con.cursor()
-	cur.execute("SELECT * FROM Users")
-	rows = cur.fetchall()
-	return render_template('table.html', rows=rows)		
+			return redirect(url_for('change_password'))
 
 @app.route('/un')
 def un():
@@ -97,3 +97,39 @@ def un():
 def logout():
     session.pop('username', None)
     return redirect(url_for('un'))
+
+@app.route('/change_password')
+def change_password():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    return render_template('change_password.html')
+
+@app.route('/update_password', methods=['POST'])
+def update_password():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    
+    current_password = request.form['current_password']
+    new_password = request.form['new_password']
+    confirm_password = request.form['confirm_password']
+    
+    if new_password != confirm_password:
+        return 'New passwords do not match'
+    
+    with sqlite3.connect('login.db') as db:
+        cursor = db.cursor()
+        # Verify current password
+        cursor.execute("SELECT * FROM Users WHERE Username=? AND Password=?",
+                      (session['username'], current_password))
+        if not cursor.fetchone():
+            return 'Current password is incorrect'
+        
+        # Update password
+        cursor.execute("UPDATE Users SET Password=? WHERE Username=?",
+                      (new_password, session['username']))
+        db.commit()
+        
+    return 'Password successfully updated'
+
+if __name__ == "__main__":
+    app.run(debug=True)
