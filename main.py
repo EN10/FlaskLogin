@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, redirect, url_for, request, flash
+from flask import Flask, render_template, session, redirect, url_for, request
 import sqlite3
 import os
 from markupsafe import escape
@@ -77,15 +77,15 @@ def add():
 def verify():
 	with sqlite3.connect('login.db') as db:
 		cursor = db.cursor()
-		cursor.execute(	"SELECT * FROM Users WHERE Username=? AND Password=?",
-			       (request.form['uname'],request.form['psw']))
+		cursor.execute("SELECT * FROM Users WHERE Username=? AND Password=?",
+			   (request.form['uname'],request.form['psw']))
 		result = cursor.fetchall()
 		if len(result) == 0:
 			return 'username / password not recognised'
 		else:
 			session.permanent = True
 			session['username'] = request.form['uname']
-			return 'welcome ' + request.form['uname']
+			return redirect(url_for('change_password'))
 
 @app.route('/un')
 def un():
