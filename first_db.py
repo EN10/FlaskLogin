@@ -3,6 +3,10 @@ import sqlite3
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+	return 'create, insert, select'
+
 @app.route('/create')
 def create():
 	con = sqlite3.connect('login.db')
@@ -20,7 +24,7 @@ def insert():
 	con = sqlite3.connect('login.db')
 	cur = con.cursor()
 	cur.execute(	"""	INSERT INTO Users (Username, Password)
-					VALUES ("Bob", "123")
+					VALUES ("bob", "123")
 			""")
 	con.commit()
 	return 'INSERT'
@@ -32,3 +36,6 @@ def select():
 	cur.execute("SELECT * FROM Users")
 	rows = cur.fetchall()
 	return str(rows)
+
+if __name__ == "__main__":
+    app.run(debug=True)
