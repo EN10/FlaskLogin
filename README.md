@@ -5,7 +5,8 @@
 3. [Insert & Select](https://github.com/eniompw/FlaskLogin/blob/master/first_db.py)
 4. [Just Signup](https://github.com/eniompw/FlaskLogin/blob/master/signup.py)
 5. [Signup & Login](https://github.com/eniompw/FlaskLogin/blob/master/signup%26login.py)
-6. [Full Example](https://github.com/eniompw/FlaskLogin/blob/master/main.py)
+6. [Sessions](https://github.com/eniompw/FlaskLogin/blob/master/sessions.py)
+7. [Full Example](https://github.com/eniompw/FlaskLogin/blob/master/main.py)
 
 * [Forms in Flask](https://github.com/eniompw/FormsInFlask)
 * [Postgres on Heroku](https://github.com/eniompw/FlaskPostgres)
